@@ -30,11 +30,11 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: EdgeInsets.symmetric(horizontal: 20.0.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(child: Container()),
+            Expanded(flex: 3, child: Container()),
             Center(child: SvgPicture.asset("assets/login_logo.svg")),
             Expanded(child: Container()),
             Row(
@@ -87,36 +87,156 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 30.h,),
+            SizedBox(
+              height: 30.h,
+            ),
             Row(
               children: const [
-                Expanded(child: CustomButton(text: 'Login',)),
+                Expanded(
+                    child: CustomButton(
+                  text: 'Login',
+                )),
               ],
             ),
-            SizedBox(height: 20.h,),
-
-            Row(children: [
-              Expanded(
-                child: Container(
-                  height: 1,
-                  // width: 20,
+            SizedBox(
+              height: 20.h,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 20.w,
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+                    child: Container(
+                      height: 1,
+                      // width: 20,
+                      color: dividerColor,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10.w,
+                ),
+                BigText(
+                  text: "OR",
+                  size: 16.sp,
                   color: dividerColor,
                 ),
-              ),
-              SizedBox(width: 10.w,),
-              BigText(text: "OR",size: 14.sp,color: dividerColor,),
-              SizedBox(width: 10.w,),
-              Expanded(
-                child: Container(
-                  height: 1,
-                  // width: 20,
-                  color: dividerColor,
+                SizedBox(
+                  width: 10.w,
                 ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+                    child: Container(
+                      height: 1,
+                      // width: 20,
+                      color: dividerColor,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20.w,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            Container(
+              padding: EdgeInsets.all(6.r),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.r),
+                  color: socialButtonBackgroundColor),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/google.png",
+                    height: 40.5.h,
+                    width: 40.5.w,
+                  ),
+                  BigText(
+                    text: "Connect with Google",
+                    size: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  )
+                ],
               ),
-
-            ],),
-
-
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Container(
+              padding: EdgeInsets.all(15.r),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.r),
+                  color: socialButtonBackgroundColor),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    "assets/facebook-logo.svg",
+                    // height: 30.5.h,
+                    // width: 30.5.w,
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  BigText(
+                    text: "Connect with Facebook",
+                    size: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Container(
+              padding: EdgeInsets.all(15.r),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.r),
+                  color: socialButtonBackgroundColor),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    "assets/apple_logo.svg",
+                    // height: 30.5.h,
+                    // width: 30.5.w,
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  BigText(
+                    text: "Connect with Apple",
+                    size: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 25.h,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                BigText(
+                  text: "Need an account?",
+                  size: 14.sp,
+                  fontWeight: FontWeight.w700,
+                ),
+                BigText(
+                  text: " Sign Up",
+                  size: 14.sp,
+                  fontWeight: FontWeight.w700,
+                  color: redColor,
+                )
+              ],
+            ),
             Expanded(child: Container()),
           ],
         ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:rob_flour_pasta_app/screens/login_screen.dart';
+import 'package:rob_flour_pasta_app/screens/main_screen/main_screen.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     Timer(Duration(seconds: splashDuration), () {
-      Get.to(() => const LoginScreen());
+      Get.to(() => const MainScreen());
     });
     super.initState();
   }
