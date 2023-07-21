@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rob_flour_pasta_app/screens/login_screen.dart';
+import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
 
@@ -66,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     var mainScreenItems = [
-      LoginScreen(),
+      HomeScreen(),
       LoginScreen(),
       LoginScreen(),
       LoginScreen(),
