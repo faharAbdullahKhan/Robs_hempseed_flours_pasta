@@ -39,7 +39,7 @@ dependencies:
   flutter_screenutil:
   flutter_svg: ^1.1.6
   google_fonts:
-
+  image_picker:
 
 
 dev_dependencies:

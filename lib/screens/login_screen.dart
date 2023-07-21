@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
+import 'package:rob_flour_pasta_app/screens/sign_up.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/app_textfield.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
@@ -91,11 +93,18 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 30.h,
             ),
             Row(
-              children: const [
+              children:  [
                 Expanded(
-                    child: CustomButton(
-                  text: 'Login',
-                )),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(() => const HomeScreen());
+
+                    },
+                    child: const CustomButton(
+                      text: 'Login',
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
@@ -220,22 +229,27 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 25.h,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BigText(
-                  text: "Need an account?",
-                  size: 14.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-                BigText(
-                  text: " Sign Up",
-                  size: 14.sp,
-                  fontWeight: FontWeight.w700,
-                  color: redColor,
-                )
-              ],
+            SizedBox(
+              height: 25.h,
+            ),
+            GestureDetector(
+              onTap: (){  Get.to(() => const SignUpScreen());},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BigText(
+                    text: "Need an account?",
+                    size: 10.42.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  BigText(
+                    text: " Sign Up",
+                    size: 10.42.sp,
+                    fontWeight: FontWeight.w700,
+                    color: redColor,
+                  )
+                ],
+              ),
             ),
             Expanded(child: Container()),
           ],
