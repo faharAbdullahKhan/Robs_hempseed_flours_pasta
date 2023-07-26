@@ -28,7 +28,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _mobileNumberTextController =
       TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
-
   final TextEditingController _confirmPasswordTextController =
       TextEditingController();
   ImagePicker _picker = ImagePicker();
@@ -76,11 +75,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           backgroundColor: redColor,
                           radius: 65.h,
                           child: CircleAvatar(
-
                             backgroundColor: textFieldBackgroundColor,
-                            backgroundImage: AssetImage(_selectedImage != null
-                                ? _selectedImage!.path
-                                : 'assets/person_icon.png',),
+                            backgroundImage: AssetImage(
+                              _selectedImage != null
+                                  ? _selectedImage!.path
+                                  : 'assets/person_icon.png',
+                            ),
 
                             // child: _selectedImage != null
                             //     ? SizedBox()
@@ -263,13 +263,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("I'm already a member"  , style: TextStyle(
-                  fontSize: 10.42.sp,
-                ),),
+                    Text(
+                      "I'm already a member",
+                      style: TextStyle(
+                        fontSize: 16.42.sp,
+                      ),
+                    ),
                     Text(
                       ' Login',
                       style: TextStyle(
-                          fontSize: 10.42.sp,
+                          fontSize: 16.42.sp,
                           color: redColor,
                           fontWeight: FontWeight.w600),
                     ),

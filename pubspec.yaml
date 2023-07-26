@@ -41,6 +41,9 @@ dependencies:
   google_fonts:
   image_picker:
   carousel_slider:
+  favorite_button: ^0.0.4
+
+
 
 dev_dependencies:
   flutter_test:

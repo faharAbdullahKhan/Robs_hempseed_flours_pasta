@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
 import 'package:rob_flour_pasta_app/screens/sign_up.dart';
+import 'package:rob_flour_pasta_app/screens/main_screen/main_page.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/app_textfield.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 BigText(
                   text: "Email",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 BigText(
                   text: "Password",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -92,20 +92,19 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 30.h,
             ),
-            Row(
-              children:  [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.to(() => const HomeScreen());
+            GestureDetector(
+              onTap: (){
+                Get.to(() => const HomePage());
 
-                    },
-                    child: const CustomButton(
-                      text: 'Login',
-                    ),
-                  ),
-                ),
-              ],
+              },
+              child: Row(
+                children: const [
+                  Expanded(
+                      child: CustomButton(
+                    text: 'Login',
+                  )),
+                ],
+              ),
             ),
             SizedBox(
               height: 20.h,
@@ -233,18 +232,18 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 25.h,
             ),
             GestureDetector(
-              onTap: (){  Get.to(() => const SignUpScreen());},
+              onTap: (){  Get.to(() =>  SignUpScreen());},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   BigText(
                     text: "Need an account?",
-                    size: 10.42.sp,
+                    size: 16.42.sp,
                     fontWeight: FontWeight.w700,
                   ),
                   BigText(
                     text: " Sign Up",
-                    size: 10.42.sp,
+                    size: 16.42.sp,
                     fontWeight: FontWeight.w700,
                     color: redColor,
                   )

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:rob_flour_pasta_app/controller/product_cart_controller.dart';
+import 'package:rob_flour_pasta_app/screens/all_product_list_screen.dart';
+import 'package:rob_flour_pasta_app/screens/cart_screen.dart';
+import 'package:rob_flour_pasta_app/screens/product_details_page.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
 import 'package:rob_flour_pasta_app/widgets/item_card.dart';
@@ -14,115 +19,102 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  void navigateToSeeAllScreen(String headingText) {
+    Get.to(() => AllProductListScreen(headingText: headingText,), transition: Transition.cupertino);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-          child: Column(
-            children: [
-              // Expanded(child: Container()),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(6.r),
-                    width: 50,
-                    height: 50,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: greenColor),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100.r),
-                        child: Image.network(
-                            fit: BoxFit.cover,
-                            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80")),
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(
-                        text: "Rayan deck",
-                        size: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      BigText(
-                        text: "Rayan deck04@gmail.com",
-                        size: 14.sp,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ],
-                  ),
-                  Expanded(child: Container()),
-                  Row(
-                    children: [
-                      SvgPicture.asset("assets/message.svg"),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      SvgPicture.asset("assets/call.svg"),
-                      SizedBox(
-                        width: 16.w,
-                      ),
-                      SvgPicture.asset("assets/cart_icon.svg"),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(15.r),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.r),
-                        color: searchFieldBackgroundColor,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 3,
-                            spreadRadius: 1,
-                            offset: const Offset(1, 10),
-                            color: Colors.grey.withOpacity(0.2),
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset("assets/search.svg"),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          BigText(
-                            text: "Search",
-                            color: searchHintColor,
-                            size: 16.sp,
-                          )
-                        ],
+        child: Container(
+
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30.h,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(18.r),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.r),
+                          color: searchFieldBackgroundColor,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 3,
+                              spreadRadius: 1,
+                              offset: const Offset(1, 4),
+                              color: Colors.grey.withOpacity(0.2),
+                            )
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset("assets/search.svg"),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            BigText(
+                              text: "Search",
+                              color: searchHintColor,
+                              size: 16.sp,
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  SvgPicture.asset("assets/filter.svg")
-                ],
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-             Expanded(
-               flex: 9,
-               child: SingleChildScrollView(
-                 child: Column(
+                    SizedBox(
+                      width: 10.w,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        Get.to(() => const CartScreen());
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10.r),
+                        decoration: BoxDecoration(color: redColor, borderRadius: BorderRadius.circular(10.r)),
+                        child: Stack(
+                          children: [
+                            Icon(Icons.shopping_bag_outlined, color: Colors.white,size: 30,),
+                            Positioned(
+                              right: 0,
+                              child: Container(
+                                decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                                padding: EdgeInsets.all(5.r),
+                                child: GetBuilder<AddToCartController>(
+                                    init: AddToCartController(), // intialize with the Controller
+
+                                    builder: (value) {
+                                    return BigText(text: value.lst.length.toString(),size: 8,);
+                                  }
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                    // SvgPicture.asset("assets/filter.svg")
+                  ],
+                ),
+                // SizedBox(
+                //   height: 30.h,
+                // ),
+               Expanded(
+                 flex: 9,
+                 child: ListView(
+                   // padding: EdgeInsets.zero,
                    children: [
+                     SizedBox(
+                       height: 30.h,
+                     ),
                      Row(
                        // crossAxisAlignment: CrossAxisAlignment.end,
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,10 +124,15 @@ class _HomeScreenState extends State<HomeScreen> {
                            color: specialOfferColor,
                            size: 18.sp,
                          ),
-                         LabelText(
-                           text: "See all",
-                           color: specialOfferColor,
-                           size: 12.sp,
+                         GestureDetector(
+                           onTap: (){
+                             navigateToSeeAllScreen("Special Offers");
+                           },
+                           child: LabelText(
+                             text: "See all",
+                             color: specialOfferColor,
+                             size: 14.sp,
+                           ),
                          )
                        ],
                      ),
@@ -167,10 +164,15 @@ class _HomeScreenState extends State<HomeScreen> {
                            color: specialOfferColor,
                            size: 18.sp,
                          ),
-                         LabelText(
-                           text: "See all",
-                           color: specialOfferColor,
-                           size: 12.sp,
+                         GestureDetector(
+                           onTap: (){
+                             navigateToSeeAllScreen("Sale Discount");
+                           },
+                           child: LabelText(
+                             text: "See all",
+                             color: specialOfferColor,
+                             size: 14.sp,
+                           ),
                          )
                        ],
                      ),
@@ -185,7 +187,11 @@ class _HomeScreenState extends State<HomeScreen> {
                          childAspectRatio: 0.8,
                          mainAxisSpacing: 6.0,
                          crossAxisSpacing: 8.0,),
-                       itemBuilder: (_, index) => ItemCard(),
+                       itemBuilder: (_, index) => GestureDetector(
+                           onTap: (){
+                             Get.to(() => ProductDetailsScreen());
+                           },
+                           child: ItemCard(index: index,)),
                        itemCount: 2,
                      ),
                      SizedBox(
@@ -200,10 +206,16 @@ class _HomeScreenState extends State<HomeScreen> {
                            color: specialOfferColor,
                            size: 18.sp,
                          ),
-                         LabelText(
-                           text: "See all",
-                           color: specialOfferColor,
-                           size: 12.sp,
+                         GestureDetector(
+                           onTap: (){
+                             navigateToSeeAllScreen("Most Popular");
+
+                           },
+                           child: LabelText(
+                             text: "See all",
+                             color: specialOfferColor,
+                             size: 12.sp,
+                           ),
                          )
                        ],
                      ),
@@ -218,27 +230,27 @@ class _HomeScreenState extends State<HomeScreen> {
                          childAspectRatio: 0.8,
                          mainAxisSpacing: 6.0,
                          crossAxisSpacing: 8.0,),
-                       itemBuilder: (_, index) => ItemCard(),
+                       itemBuilder: (_, index) => ItemCard(index: index,),
                        itemCount: 2,
                      )
                    ],
                  ),
-               ),
-             )
+               )
 
-              // Expanded(
-              //   child: ListView.builder(
-              //       itemCount: 2,
-              //       shrinkWrap: true,
-              //       scrollDirection: Axis.horizontal,
-              //       itemBuilder: (context, index){
-              //         return ItemCard();
-              //   }),
-              // ),
-              // Expanded(child: Container()),
+                // Expanded(
+                //   child: ListView.builder(
+                //       itemCount: 2,
+                //       shrinkWrap: true,
+                //       scrollDirection: Axis.horizontal,
+                //       itemBuilder: (context, index){
+                //         return ItemCard();
+                //   }),
+                // ),
+                // Expanded(child: Container()),
 
 
-            ],
+              ],
+            ),
           ),
         ),
       ),

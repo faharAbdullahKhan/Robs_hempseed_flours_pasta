@@ -10,4 +10,4 @@ const searchFieldBackgroundColor = Color.fromRGBO(239, 239, 239, 1);
 const searchHintColor = Color.fromRGBO(182, 182, 182, 1);
 const specialOfferColor = Color.fromRGBO(85, 85, 85, 1);
 const carasoulBackground = Color.fromRGBO(233, 233, 233, 1);
-// rgba(233, 233, 233, 1)
+const labelTextColor = Color.fromRGBO(167, 167, 167, 1);
