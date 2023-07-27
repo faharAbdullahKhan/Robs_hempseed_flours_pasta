@@ -42,14 +42,9 @@ dependencies:
   image_picker:
   carousel_slider:
   favorite_button: ^0.0.4
-<<<<<<< Updated upstream
   device_preview:
-
-
-=======
   flutter_rating_bar:
   percent_indicator:
->>>>>>> Stashed changes
 
 dev_dependencies:
   flutter_test:

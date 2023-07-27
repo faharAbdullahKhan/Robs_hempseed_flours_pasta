@@ -67,35 +67,30 @@ class _CartScreenState extends State<CartScreen> {
         decoration: BoxDecoration(color: greenColor, borderRadius: BorderRadius.only(topRight: Radius.circular(50.r), topLeft: Radius.circular(50.r))),
         child: Column(
           children: [
-            Expanded(child: Container()),
-            CartBottomSheet(labelText: "Denim Shirt", priceText: "\$38.00",),
-            SizedBox(height: 20.h,),
-            Container(
-              height: 1.h,
-              decoration: const BoxDecoration(color: Colors.white),
-            ),
-            SizedBox(height: 20.h,),
+            Expanded(
+                child: Container()),
 
-            CartBottomSheet(labelText: "Denim Shirt", priceText: "\$38.00",),
-            SizedBox(height: 20.h,),
-            Container(
-              height: 1.h,
-              decoration: const BoxDecoration(color: Colors.white),
-            ),
-            SizedBox(height: 20.h,),
+            Expanded(
+              flex: 5,
+              child: ListView.builder(
+                  itemCount: 5,
 
-            CartBottomSheet(labelText: "Denim Shirt", priceText: "\$38.00",),
-            SizedBox(height: 20.h,),
-            Container(
-              height: 1.h,
-              decoration: const BoxDecoration(color: Colors.white),
-            ),
-            SizedBox(height: 20.h,),
-            CartBottomSheet(labelText: "Denim Shirt", priceText: "\$38.00",),
-            SizedBox(height: 20.h,),
-            Container(
-              height: 1.h,
-              decoration: const BoxDecoration(color: Colors.white),
+                  itemBuilder: (context, index){
+                return Column(children: [
+                  CartBottomSheet(labelText: "Denim Shirt", priceText: "\$38.00",),
+                  SizedBox(height: 10.h,),
+                  Visibility(
+                    visible: index == 4 ? false : true,
+                    child: Container(
+                      height: 1.h,
+                      decoration: const BoxDecoration(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: 10.h,),
+
+                ],);
+
+              }),
             ),
             SizedBox(height: 20.h,),
             Row(

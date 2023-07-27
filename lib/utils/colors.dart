@@ -11,13 +11,10 @@ const searchHintColor = Color.fromRGBO(182, 182, 182, 1);
 const specialOfferColor = Color.fromRGBO(85, 85, 85, 1);
 const carasoulBackground = Color.fromRGBO(233, 233, 233, 1);
 const labelTextColor = Color.fromRGBO(167, 167, 167, 1);
-<<<<<<< Updated upstream
 const cartCategoryLabelColor = Color.fromRGBO(142, 142, 142, 1);
 const counterContainerColor = Color.fromRGBO(244, 245, 246, 1);
-=======
 const appBarBackground = Color.fromRGBO(255, 255, 255, 1);
 const ratingPageStarYellowIconColor = Color.fromRGBO(243, 154, 30,1);
 const ratingPageStarGreyIconColor = Color.fromRGBO(190, 190, 190,1);
 const dateColor = Color.fromRGBO(155, 155, 155, 1);
 const commentColor = Color.fromRGBO(34, 34, 34, 1);
->>>>>>> Stashed changes

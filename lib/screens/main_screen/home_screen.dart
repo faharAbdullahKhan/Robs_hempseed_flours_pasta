@@ -149,7 +149,6 @@ class _HomeScreenState extends State<HomeScreen> {
                        color: greenColor,
                        borderRadius: BorderRadius.circular(16.r),
                      ),
-<<<<<<< Updated upstream
                      child: LabelText(text: "Company About",color: Colors.white,fontWeight: FontWeight.w800,),
                    ),
                    SizedBox(
@@ -170,35 +169,6 @@ class _HomeScreenState extends State<HomeScreen> {
                          },
                          child: LabelText(
                            text: "See all",
-=======
-                     SizedBox(
-                       height: 10.h,
-                     ),
-                     GridView.builder(
-                       padding: EdgeInsets.zero,
-                       shrinkWrap: true,
-                       physics: NeverScrollableScrollPhysics(),
-                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisCount: 2,
-                         childAspectRatio: 0.8,
-                         mainAxisSpacing: 6.0,
-                         crossAxisSpacing: 8.0,),
-                       itemBuilder: (_, index) => GestureDetector(
-                           onTap: (){
-                             Get.to(() => ProductDetailsScreen(index:  index ));
-                           },
-                           child: ItemCard(index: index,)),
-                       itemCount: 2,
-                     ),
-                     SizedBox(
-                       height: 20.h,
-                     ),
-                     Row(
-                       // crossAxisAlignment: CrossAxisAlignment.end,
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         LabelText(
-                           text: "Most Popular",
->>>>>>> Stashed changes
                            color: specialOfferColor,
                            size: 14.sp,
                          ),
@@ -218,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                        crossAxisSpacing: 8.0,),
                      itemBuilder: (_, index) => GestureDetector(
                          onTap: (){
-                           Get.to(() => ProductDetailsScreen());
+                           Get.to(() => ProductDetailsScreen(index: index,));
                          },
                          child: ItemCard(index: index,)),
                      itemCount: 2,
