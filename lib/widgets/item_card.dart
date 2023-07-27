@@ -5,6 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:rob_flour_pasta_app/controller/favorite_controller.dart';
 import 'package:rob_flour_pasta_app/controller/product_cart_controller.dart';
+
+import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
+import 'package:rob_flour_pasta_app/screens/product_detail_screen/product_details_page.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/label_text.dart';
 

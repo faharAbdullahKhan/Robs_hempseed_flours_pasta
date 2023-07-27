@@ -7,6 +7,7 @@ class LabelText extends StatelessWidget {
   double size;
   TextOverflow overflow;
   FontWeight fontWeight;
+  int maxLines;
   TextDecoration textDecoration;
 
   LabelText(
@@ -16,14 +17,15 @@ class LabelText extends StatelessWidget {
         this.overflow = TextOverflow.ellipsis,
         this.fontWeight = FontWeight.normal,
         this.size = 0,
-        this.textDecoration =TextDecoration.none })
+        this.textDecoration =TextDecoration.none,
+      this.maxLines = 500})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      maxLines: 500,
+      maxLines: maxLines,
       overflow: overflow,
       style: TextStyle(
         fontFamily: "AVGARDN_2",

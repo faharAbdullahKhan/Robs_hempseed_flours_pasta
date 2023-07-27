@@ -123,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "First Name",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -132,7 +132,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: 6.h,
             ),
             AppTextField(
-                textController: _firstNameTextController, hintText: ""),
+                textController: _firstNameTextController, hintText: "",),
             SizedBox(
               height: 20.h,
             ),
@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "Last Name",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -162,7 +162,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "Email",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -183,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "Mobile Number",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -205,7 +205,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "Password",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],
@@ -226,7 +226,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 BigText(
                   text: "Confirm Password",
-                  color: labelColor,
+                  color: labelTextColor,
                   size: 14.sp,
                 ),
               ],

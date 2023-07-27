@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rob_flour_pasta_app/widgets/label_text.dart';
 
 class SingleReview extends StatefulWidget {
   Color? color;
@@ -15,7 +17,7 @@ class SingleReview extends StatefulWidget {
       this.overflow = TextOverflow.ellipsis,
       this.fontWeight = FontWeight.normal,
       this.size = 0,
-      this.textDecoration = TextDecoration.none})
+      this.textDecoration = TextDecoration.underline})
       : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class SingleReview extends StatefulWidget {
 }
 
 class _SingleReviewState extends State<SingleReview> {
-  bool reveal = false;
+  bool reveal = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,41 +44,29 @@ class _SingleReviewState extends State<SingleReview> {
               });
             },
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  style: TextStyle(
-                    fontFamily: "AVGARDN_2",
-                    color: widget.color,
-                    fontWeight: widget.fontWeight,
-                    decoration: widget.textDecoration,
-                    fontSize: widget.size == 0
-                        ? MediaQuery.of(context).size.height / 42.2
-                        : widget.size,
-                  ),
-                  widget.text,
-                  maxLines: reveal ? 4 : null,
-                  overflow: reveal ? TextOverflow.ellipsis : null,
-                ),
+                LabelText(text: widget.text, size: 12.sp,maxLines: reveal ? 4 : 500),
                 reveal == false
                     ? Text(
-                        'View More',
+                        'View less',
                         style: TextStyle(
                           fontFamily: "AVGARDN_2",
                           color: widget.color,
-                          fontWeight:FontWeight.w900,
-                          decoration: widget.textDecoration,
+                          fontWeight: FontWeight.w900,
+                          decoration: TextDecoration.underline,
                           fontSize: widget.size == 0
                               ? MediaQuery.of(context).size.height / 42.2
                               : widget.size,
                         ),
                       )
                     : Text(
-                        'VIew less',
+                        'View More',
                         style: TextStyle(
                           fontFamily: "AVGARDN_2",
                           color: widget.color,
                           fontWeight: FontWeight.w900,
-                          decoration: widget.textDecoration,
+                          decoration: TextDecoration.underline,
                           fontSize: widget.size == 0
                               ? MediaQuery.of(context).size.height / 42.2
                               : widget.size,
