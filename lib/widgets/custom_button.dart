@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
+import 'package:rob_flour_pasta_app/widgets/label_text.dart';
 
 class CustomButton extends StatefulWidget {
   final String text;
@@ -23,16 +24,16 @@ class _CustomButtonState extends State<CustomButton> {
           BoxShadow(
             blurRadius: 3,
             spreadRadius: 1,
-            offset: const Offset(1, 10),
+            offset: const Offset(1, 1),
             color: Colors.grey.withOpacity(0.2),
           )
         ],
       ),
       child: Center(
-          child: BigText(
-        text: widget.text,
-        size: 14.5.sp,
-        fontWeight: FontWeight.w500,
+          child: LabelText(
+        text: widget.text.toUpperCase(),
+        size: 18.5.sp,
+        fontWeight: FontWeight.bold,
         color: Colors.white,
       )),
     );

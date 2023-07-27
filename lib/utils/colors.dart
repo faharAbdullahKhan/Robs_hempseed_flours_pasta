@@ -11,3 +11,5 @@ const searchHintColor = Color.fromRGBO(182, 182, 182, 1);
 const specialOfferColor = Color.fromRGBO(85, 85, 85, 1);
 const carasoulBackground = Color.fromRGBO(233, 233, 233, 1);
 const labelTextColor = Color.fromRGBO(167, 167, 167, 1);
+const cartCategoryLabelColor = Color.fromRGBO(142, 142, 142, 1);
+const counterContainerColor = Color.fromRGBO(244, 245, 246, 1);

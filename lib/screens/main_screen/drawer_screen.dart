@@ -69,9 +69,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
         ),
       ),
       bottomSheet: Container(
-        padding: EdgeInsets.only(bottom: 100.h, left: 30.w),
+        padding: EdgeInsets.only( left: 30.w),
         // width: 30,
-        // height: 20,
+        height: 200,
         color: greenColor,
         child: Row(
           children: [

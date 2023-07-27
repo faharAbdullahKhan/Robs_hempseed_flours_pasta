@@ -94,7 +94,7 @@ class _MainScreenState extends State<MainScreen> {
         decoration: BoxDecoration(
           color: Colors.white, // added
           // border: Border.all(color: Colors.orange, width: 5), // added
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(isDrawerOpen ? 25.0 : 0),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
