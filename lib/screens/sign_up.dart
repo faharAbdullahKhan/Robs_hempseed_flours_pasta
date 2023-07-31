@@ -30,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _confirmPasswordTextController =
       TextEditingController();
-  ImagePicker _picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();
   File? _selectedImage;
 
   pickerImage(ImageSource source) async {

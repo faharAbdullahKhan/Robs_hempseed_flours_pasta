@@ -21,9 +21,10 @@ class _CommentItemState extends State<CommentItem> {
         children: [
           Padding(
             padding: EdgeInsets.all(30.0.r),
-            child: Card(shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
               color: appBarBackground,
               elevation: 1,
               child: Container(

@@ -93,225 +93,225 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            children: [
+              Stack(
+                children: [
+                  productsDetailsSlider(),
+                  Positioned(
+                      top: 20,
+                      right: 20,
+                      child:    Container(
+                        padding: EdgeInsets.all(5.r),
+                        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                        child: GetBuilder<FavoriteController>(
+                            init: FavoriteController(),
+                            builder: (value) {
+                              return FavoriteButton(
+                                iconSize: 5,
+                                valueChanged: (isFavorite) {
+                                  print('Is Favorite $isFavorite)');
+                                  int added = 0;
+                                  added++;
+                                  value.add("Best seller", "assets/item.png", added);
+
+                                  if(isFavorite == false) {
+                                    value.del(widget.index);
+                                  }
+                                },
+                                // child: Icon(Icons.favorite_border),
+                              );
+                            }
+                        ),
+                      ),),
+                  Positioned(
+                      top: 20,
+                      left: 20,
+                      child: GestureDetector(
+                        onTap: () {
+
+                          Get.back();
+
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          size: 20.w,
+                        ),
+                      )),
+                ],
+              ),
+            ],
+          ),
+          Expanded(
+            child: Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 20.0.h),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    productsDetailsSlider(),
-                    Positioned(
-                        top: 20,
-                        right: 20,
-                        child:    Container(
-                          padding: EdgeInsets.all(5.r),
-                          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                          child: GetBuilder<FavoriteController>(
-                              init: FavoriteController(),
-                              builder: (value) {
-                                return FavoriteButton(
-                                  iconSize: 5,
-                                  valueChanged: (isFavorite) {
-                                    print('Is Favorite $isFavorite)');
-                                    int added = 0;
-                                    added++;
-                                    value.add("Best seller", "assets/item.png", added);
-
-                                    if(isFavorite == false) {
-                                      value.del(widget.index);
-                                    }
-                                  },
-                                  // child: Icon(Icons.favorite_border),
-                                );
-                              }
-                          ),
-                        ),),
-                    Positioned(
-                        top: 20,
-                        left: 20,
-                        child: GestureDetector(
-                          onTap: () {
-
-                            Get.back();
-
-                          },
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20.w,
-                          ),
-                        )),
-                  ],
-                ),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 20.0.h),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      LabelText(
-                        text: "Regatoni Pasta",
-                        color: greenColor,
-                        fontWeight: FontWeight.w700,
-                        size: 25.sp,
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      // BigText(text: 'Regatoni Pasta'),
-                      Row(
-                        children: [
-                          Container(
-                            color: greenColor,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: LabelText(
-                                text: '2,123 Sold',
-                                fontWeight: FontWeight.w400,
-                                size: 11.sp,
-                                color: Colors.white,
-                              ),
+                    LabelText(
+                      text: "Regatoni Pasta",
+                      color: greenColor,
+                      fontWeight: FontWeight.w700,
+                      size: 25.sp,
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    // BigText(text: 'Regatoni Pasta'),
+                    Row(
+                      children: [
+                        Container(
+                          color: greenColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: LabelText(
+                              text: '2,123 Sold',
+                              fontWeight: FontWeight.w400,
+                              size: 11.sp,
+                              color: Colors.white,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(ratingAndReviews());
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.star,
+                                  color: Colors.yellow[600], size: 18.sp),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              LabelText(
+                                text: '4.8(2,236 Review)',
+                                fontWeight: FontWeight.w400,
+                                size: 11.sp,
+                              ),
+                            ],
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(ratingAndReviews());
-                            },
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    LabelText(
+                      text: "Description",
+                      color: greenColor,
+                      fontWeight: FontWeight.w700,
+                      size: 25.sp,
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    SingleReview(
+                        color: specialOfferColor,
+                        fontWeight: FontWeight.w400,
+                        size: 12.sp,
+                        text:
+                            "The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well. The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well. The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well."),
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Row(
+                      children: [
+                        LabelText(
+                          text: "Quantity",
+                          color: greenColor,
+                          fontWeight: FontWeight.w400,
+                          size: 18.sp,
+                        ),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: carasoulBackground,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 5.0),
                             child: Row(
                               children: [
-                                Icon(Icons.star,
-                                    color: Colors.yellow[600], size: 18.sp),
+                                // LabelText(
+                                //     color: greenColor,
+                                //     fontWeight: FontWeight.w700,
+                                //     size: 12.66.sp,
+                                //     text: '-'),
+
+                                GestureDetector(
+                                  onTap: () {
+
+                                    setState(() {
+                                      if(_count > 0 )
+                                        {
+                                          _count--;
+
+                                        }
+
+                                    });
+
+                                  },
+                                  child: Icon(
+                                    Icons.remove,
+                                    size: 15.66.sp,
+                                    color: greenColor,
+                                  ),
+                                ),
                                 SizedBox(
-                                  width: 5,
+                                  width: 10.w,
                                 ),
                                 LabelText(
-                                  text: '4.8(2,236 Review)',
-                                  fontWeight: FontWeight.w400,
-                                  size: 11.sp,
+                                    color: greenColor,
+                                    fontWeight: FontWeight.w700,
+                                    size: 12.66.sp,
+                                    text: _count.toString()),
+                                SizedBox(
+                                  width: 10.w,
+                                ),
+                                // LabelText(
+                                //     color: greenColor,
+                                //     fontWeight: FontWeight.w700,
+                                //     size: 12.66.sp,
+                                //     text: '+'),
+                                GestureDetector(
+                                  onTap: () {
+
+                                    setState(() {
+                                      _count++;
+                                    });
+
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 15.66.sp,
+                                    color: greenColor,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      LabelText(
-                        text: "Description",
-                        color: greenColor,
-                        fontWeight: FontWeight.w700,
-                        size: 25.sp,
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      SingleReview(
-                          color: specialOfferColor,
-                          fontWeight: FontWeight.w400,
-                          size: 12.sp,
-                          text:
-                              "The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well. The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well. The dress is great! Very classy and comfortable. It fit perfectly! I'm 5'7 and 130 pounds. I am a 34B chest. This dress would be too long for those who are shorter but could be hemmed. I wouldn't recommend it for those big chested as I am smaller chested and it fit me perfectly. The underarms were not too wide and the dress was made well."),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      Row(
-                        children: [
-                          LabelText(
-                            text: "Quantity",
-                            color: greenColor,
-                            fontWeight: FontWeight.w400,
-                            size: 18.sp,
-                          ),
-                          SizedBox(
-                            width: 20.w,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: carasoulBackground,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 8.0, vertical: 5.0),
-                              child: Row(
-                                children: [
-                                  // LabelText(
-                                  //     color: greenColor,
-                                  //     fontWeight: FontWeight.w700,
-                                  //     size: 12.66.sp,
-                                  //     text: '-'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 150.h,)
 
-                                  GestureDetector(
-                                    onTap: () {
-
-                                      setState(() {
-                                        if(_count > 0 )
-                                          {
-                                            _count--;
-
-                                          }
-
-                                      });
-
-                                    },
-                                    child: Icon(
-                                      Icons.remove,
-                                      size: 15.66.sp,
-                                      color: greenColor,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10.w,
-                                  ),
-                                  LabelText(
-                                      color: greenColor,
-                                      fontWeight: FontWeight.w700,
-                                      size: 12.66.sp,
-                                      text: _count.toString()),
-                                  SizedBox(
-                                    width: 10.w,
-                                  ),
-                                  // LabelText(
-                                  //     color: greenColor,
-                                  //     fontWeight: FontWeight.w700,
-                                  //     size: 12.66.sp,
-                                  //     text: '+'),
-                                  GestureDetector(
-                                    onTap: () {
-
-                                      setState(() {
-                                        _count++;
-                                      });
-
-                                    },
-                                    child: Icon(
-                                      Icons.add,
-                                      size: 15.66.sp,
-                                      color: greenColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
