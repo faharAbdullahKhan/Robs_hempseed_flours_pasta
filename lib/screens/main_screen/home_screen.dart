@@ -4,7 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:rob_flour_pasta_app/controller/product_cart_controller.dart';
 import 'package:rob_flour_pasta_app/screens/all_product_list_screen.dart';
-import 'package:rob_flour_pasta_app/screens/cart_screen.dart';
+import 'package:rob_flour_pasta_app/screens/cart_screens/cart_empty_screen.dart';
+import 'package:rob_flour_pasta_app/screens/cart_screens/cart_screen.dart';
 import 'package:rob_flour_pasta_app/screens/product_detail_screen/product_details_page.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
@@ -76,8 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 10.w,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Get.to(() => CartScreen());
+                    onTap: (){
+                      Get.to(() =>  const CartScreen());
                     },
                     child: Container(
                       padding: EdgeInsets.all(10.r),

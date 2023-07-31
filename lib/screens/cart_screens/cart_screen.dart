@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:rob_flour_pasta_app/controller/product_cart_controller.dart';
+import 'package:rob_flour_pasta_app/screens/cart_screens/cart_empty_screen.dart';
+import 'package:rob_flour_pasta_app/screens/payment_screen.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/utils/general_helper.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
@@ -20,9 +22,10 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  int cartList = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return cartList == 0 ? EmptyCartScreen():Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -106,7 +109,11 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
             SizedBox(height: 20.h,),
-            CustomButton(text: 'checkout',),
+            GestureDetector(
+                onTap: (){
+                  Get.to(() => const PaymentScreen());
+                },
+                child: const CustomButton(text: 'checkout',)),
             SizedBox(height: 20.h,),
 
 

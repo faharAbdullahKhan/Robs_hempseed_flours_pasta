@@ -83,13 +83,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset("assets/fav_empty.svg"),
-                        SizedBox(height: 20.h,),
-                        LabelText(
-                          text: "No items in favorites",
-                          size: 30.sp,
-                          fontWeight: FontWeight.bold,
-                        )
+                        SvgPicture.asset("assets/empty_fav.svg"),
                       ],
                     ),
                 )
@@ -98,8 +92,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     child: GridView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 0.8,
                         mainAxisSpacing: 6.0,

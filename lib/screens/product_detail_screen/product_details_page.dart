@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rob_flour_pasta_app/controller/favorite_controller.dart';
-import 'package:rob_flour_pasta_app/screens/cart_screen.dart';
+import 'package:rob_flour_pasta_app/screens/cart_screens/cart_screen.dart';
 import 'package:rob_flour_pasta_app/screens/product_detail_screen/products_details_slider.dart';
 import 'package:rob_flour_pasta_app/screens/rating_Screen/rating_and_reviews.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
@@ -96,54 +96,59 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Stack(
-            children: [
-              Stack(
+          Container(
+            decoration:const BoxDecoration(color: carasoulBackground),
+            child: SafeArea(
+              child: Stack(
                 children: [
-                  productsDetailsSlider(),
-                  Positioned(
-                      top: 20,
-                      right: 20,
-                      child:    Container(
-                        padding: EdgeInsets.all(5.r),
-                        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                        child: GetBuilder<FavoriteController>(
-                            init: FavoriteController(),
-                            builder: (value) {
-                              return FavoriteButton(
-                                iconSize: 5,
-                                valueChanged: (isFavorite) {
-                                  print('Is Favorite $isFavorite)');
-                                  int added = 0;
-                                  added++;
-                                  value.add("Best seller", "assets/item.png", added);
+                  Stack(
+                    children: [
+                      productsDetailsSlider(),
+                      Positioned(
+                          top: 20,
+                          right: 20,
+                          child:    Container(
+                            padding: EdgeInsets.all(5.r),
+                            decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                            child: GetBuilder<FavoriteController>(
+                                init: FavoriteController(),
+                                builder: (value) {
+                                  return FavoriteButton(
+                                    iconSize: 5,
+                                    valueChanged: (isFavorite) {
+                                      print('Is Favorite $isFavorite)');
+                                      int added = 0;
+                                      added++;
+                                      value.add("Best seller", "assets/item.png", added);
 
-                                  if(isFavorite == false) {
-                                    value.del(widget.index);
-                                  }
-                                },
-                                // child: Icon(Icons.favorite_border),
-                              );
-                            }
-                        ),
-                      ),),
-                  Positioned(
-                      top: 20,
-                      left: 20,
-                      child: GestureDetector(
-                        onTap: () {
+                                      if(isFavorite == false) {
+                                        value.del(widget.index);
+                                      }
+                                    },
+                                    // child: Icon(Icons.favorite_border),
+                                  );
+                                }
+                            ),
+                          ),),
+                      Positioned(
+                          top: 20,
+                          left: 20,
+                          child: GestureDetector(
+                            onTap: () {
 
-                          Get.back();
+                              Get.back();
 
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20.w,
-                        ),
-                      )),
+                            },
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              size: 20.w,
+                            ),
+                          )),
+                    ],
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
           Expanded(
             child: Padding(

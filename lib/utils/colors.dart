@@ -20,4 +20,4 @@ const ratingPageStarGreyIconColor = Color.fromRGBO(190, 190, 190,1);
 const dateColor = Color.fromRGBO(155, 155, 155, 1);
 const commentColor = Color.fromRGBO(34, 34, 34, 1);
 const commentTextFileBOrder = Color.fromRGBO(27, 56, 28, 1);
-
+const buyNowLabelColor = Color.fromRGBO(87, 99, 111, 1);
