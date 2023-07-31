@@ -103,7 +103,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 children: [
                   Stack(
                     children: [
-                      productsDetailsSlider(),
+                      const productsDetailsSlider(),
                       Positioned(
                           top: 20,
                           right: 20,

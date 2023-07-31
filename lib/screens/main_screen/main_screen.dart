@@ -7,6 +7,7 @@ import 'package:rob_flour_pasta_app/screens/edit_profile_screen.dart';
 import 'package:rob_flour_pasta_app/screens/favorite_screen.dart';
 import 'package:rob_flour_pasta_app/screens/login_screen.dart';
 import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
+import 'package:rob_flour_pasta_app/screens/order_screen.dart';
 import 'package:rob_flour_pasta_app/utils/colors.dart';
 import 'package:rob_flour_pasta_app/widgets/big_text.dart';
 
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
     var mainScreenItems = [
       HomeScreen(),
       FavoriteScreen(),
-      LoginScreen(),
+      OrderScreen(),
       LoginScreen(),
       EditProfileScreen(),
     ];
@@ -286,7 +287,7 @@ class _MainScreenState extends State<MainScreen> {
                                 size: 14.sp,
                               )
                             : SvgPicture.asset(
-                                "assets/fav.svg",
+                                "assets/order.svg",
                                 // width: 30,
                                 // color: _page == 0 ? blueColor : progressBackgroundColor,
                               )
