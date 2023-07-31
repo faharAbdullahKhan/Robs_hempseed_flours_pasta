@@ -1,5 +1,6 @@
 import 'dart:async';
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(textController: _emailTextController, hintText: ""),
+            AppTextField(textController: _emailTextController, hintText: "",enabled: true,),
             SizedBox(
               height: 20.h,
             ),
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _passwordTextController,
               hintText: "",
               isObscure: true,

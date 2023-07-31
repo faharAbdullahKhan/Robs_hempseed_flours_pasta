@@ -6,15 +6,19 @@ class AppTextField extends StatelessWidget {
   final String hintText;
   final bool isObscure;
   final textInputType;
-  const AppTextField({super.key, required this.textController, required this.hintText, this.textInputType,  this.isObscure = false});
+  final bool enabled;
+  const AppTextField({super.key, required this.textController, required this.hintText, this.textInputType,  this.isObscure = false,  this.enabled =true});
 
   @override
   Widget build(BuildContext context) {
     return  TextField(
+
+      enabled: enabled,
       controller: textController,
       obscureText: isObscure,
       keyboardType: textInputType,
       decoration: InputDecoration(
+        hintStyle:TextStyle(color: commentTextFileBOrder),
         hintText: hintText,
         filled: true,
         fillColor: textFieldBackgroundColor,

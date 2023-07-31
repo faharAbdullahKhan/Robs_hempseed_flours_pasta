@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:rob_flour_pasta_app/screens/edit_profile_screen.dart';
 import 'package:rob_flour_pasta_app/screens/favorite_screen.dart';
 import 'package:rob_flour_pasta_app/screens/login_screen.dart';
 import 'package:rob_flour_pasta_app/screens/main_screen/home_screen.dart';
@@ -76,20 +78,22 @@ class _MainScreenState extends State<MainScreen> {
       FavoriteScreen(),
       LoginScreen(),
       LoginScreen(),
-      LoginScreen(),
+      EditProfileScreen(),
     ];
 
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         setState(() {
           xOffset = 0;
           yOffset = 0;
           scaleFactor = 1;
-          isDrawerOpen  = false;
+          isDrawerOpen = false;
         });
       },
       child: AnimatedContainer(
-        transform: Matrix4.translationValues(xOffset, yOffset, 0)..scale(scaleFactor)..rotateY(0),
+        transform: Matrix4.translationValues(xOffset, yOffset, 0)
+          ..scale(scaleFactor)
+          ..rotateY(0),
         duration: const Duration(milliseconds: 250),
         decoration: BoxDecoration(
           color: Colors.white, // added
@@ -105,60 +109,73 @@ class _MainScreenState extends State<MainScreen> {
                     Visibility(
                       visible: _page == 0,
                       child: Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 12.0.w),
+                        padding: EdgeInsets.symmetric(horizontal: 12.0.w),
                         child: Row(
                           children: [
                             GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   setState(() {
                                     print("tapped");
-                                    if(isDrawerOpen == true) {
+                                    if (isDrawerOpen == true) {
                                       xOffset = 0;
                                       yOffset = 0;
                                       scaleFactor = 1;
-                                      isDrawerOpen  = false;
-                                    }else{
+                                      isDrawerOpen = false;
+                                    } else {
                                       isDrawerOpen = true;
 
                                       xOffset = 300.w;
                                       yOffset = 100.h;
                                       scaleFactor = 0.8;
                                     }
-
-
                                   });
                                 },
-                                child: SvgPicture.asset("assets/hamburger.svg", height: 20.h,)),
-                            SizedBox(width: 10.h,),
-                            Container(
-                              padding: EdgeInsets.all(6.r),
-                              width: 50,
-                              height: 50,
-                              decoration: const BoxDecoration(
-                                  shape: BoxShape.circle, color: greenColor),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100.r),
-                                  child: Image.network(
-                                      fit: BoxFit.cover,
-                                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80")),
+                                child: SvgPicture.asset(
+                                  "assets/hamburger.svg",
+                                  height: 20.h,
+                                )),
+                            SizedBox(
+                              width: 10.h,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(EditProfileScreen());
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(6.r),
+                                width: 50,
+                                height: 50,
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle, color: greenColor),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    child: Image.network(
+                                        fit: BoxFit.cover,
+                                        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80")),
+                              ),
                             ),
                             SizedBox(
                               width: 10.w,
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                BigText(
-                                  text: "Rayan deck",
-                                  size: 18.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                BigText(
-                                  text: "Rayan deck04@gmail.com",
-                                  size: 14.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ],
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(EditProfileScreen());
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  BigText(
+                                    text: "Rayan deck",
+                                    size: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  BigText(
+                                    text: "Rayan deck04@gmail.com",
+                                    size: 14.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ],
+                              ),
                             ),
                             Expanded(child: Container()),
                             Row(
@@ -181,7 +198,6 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ),
                     ),
-
                     Expanded(
                       child: PageView(
                         controller: pageController,
@@ -200,28 +216,28 @@ class _MainScreenState extends State<MainScreen> {
                 // activeColor: blueColor,
                 items: [
                   BottomNavigationBarItem(
-                      icon: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _page == 0 ? BigText(text: ".", color: redColor,):SizedBox(height: 16.h,),
-                          _page == 0 ? BigText(text: "Home",color: redColor,size: 14.sp,): SvgPicture.asset(
-                            "assets/profile.svg",
-                            // width: 30,
-                            // color: _page == 0 ? blueColor : progressBackgroundColor,
-                          )
-                        ],
-                      ),
-                  ),
-                  BottomNavigationBarItem(
                     icon: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _page == 1 ? BigText(text: ".", color: redColor,):SizedBox(height: 16.h,),
-                        _page == 1 ? BigText(text: "Favorite",color: redColor,size: 14.sp,): SvgPicture.asset(
-                          "assets/fav.svg",
-                          // width: 30,
-                          // color: _page == 0 ? blueColor : progressBackgroundColor,
-                        )
+                        _page == 0
+                            ? BigText(
+                                text: ".",
+                                color: redColor,
+                              )
+                            : SizedBox(
+                                height: 16.h,
+                              ),
+                        _page == 0
+                            ? BigText(
+                                text: "Home",
+                                color: redColor,
+                                size: 14.sp,
+                              )
+                            : SvgPicture.asset(
+                                "assets/profile.svg",
+                                // width: 30,
+                                // color: _page == 0 ? blueColor : progressBackgroundColor,
+                              )
                       ],
                     ),
                   ),
@@ -229,12 +245,25 @@ class _MainScreenState extends State<MainScreen> {
                     icon: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _page == 2 ? BigText(text: ".", color: redColor,):SizedBox(height: 16.h,),
-                        _page == 2 ? BigText(text: "Order",color: redColor,size: 14.sp,): SvgPicture.asset(
-                          "assets/fav.svg",
-                          // width: 30,
-                          // color: _page == 0 ? blueColor : progressBackgroundColor,
-                        )
+                        _page == 1
+                            ? BigText(
+                                text: ".",
+                                color: redColor,
+                              )
+                            : SizedBox(
+                                height: 16.h,
+                              ),
+                        _page == 1
+                            ? BigText(
+                                text: "Favorite",
+                                color: redColor,
+                                size: 14.sp,
+                              )
+                            : SvgPicture.asset(
+                                "assets/fav.svg",
+                                // width: 30,
+                                // color: _page == 0 ? blueColor : progressBackgroundColor,
+                              )
                       ],
                     ),
                   ),
@@ -242,12 +271,25 @@ class _MainScreenState extends State<MainScreen> {
                     icon: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _page == 3 ? BigText(text: ".", color: redColor,):SizedBox(height: 16.h,),
-                        _page == 3 ? BigText(text: "Notification",color: redColor,size: 14.sp,): SvgPicture.asset(
-                          "assets/notification_icon.svg",
-                          // width: 30,
-                          // color: _page == 0 ? blueColor : progressBackgroundColor,
-                        )
+                        _page == 2
+                            ? BigText(
+                                text: ".",
+                                color: redColor,
+                              )
+                            : SizedBox(
+                                height: 16.h,
+                              ),
+                        _page == 2
+                            ? BigText(
+                                text: "Order",
+                                color: redColor,
+                                size: 14.sp,
+                              )
+                            : SvgPicture.asset(
+                                "assets/fav.svg",
+                                // width: 30,
+                                // color: _page == 0 ? blueColor : progressBackgroundColor,
+                              )
                       ],
                     ),
                   ),
@@ -255,12 +297,51 @@ class _MainScreenState extends State<MainScreen> {
                     icon: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _page == 4 ? BigText(text: ".", color: redColor,):SizedBox(height: 16.h,),
-                        _page == 4 ? BigText(text: "Profile",color: redColor,size: 14.sp,): SvgPicture.asset(
-                          "assets/profile.svg",
-                          // width: 30,
-                          // color: _page == 0 ? blueColor : progressBackgroundColor,
-                        )
+                        _page == 3
+                            ? BigText(
+                                text: ".",
+                                color: redColor,
+                              )
+                            : SizedBox(
+                                height: 16.h,
+                              ),
+                        _page == 3
+                            ? BigText(
+                                text: "Notification",
+                                color: redColor,
+                                size: 14.sp,
+                              )
+                            : SvgPicture.asset(
+                                "assets/notification_icon.svg",
+                                // width: 30,
+                                // color: _page == 0 ? blueColor : progressBackgroundColor,
+                              )
+                      ],
+                    ),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _page == 4
+                            ? BigText(
+                                text: ".",
+                                color: redColor,
+                              )
+                            : SizedBox(
+                                height: 16.h,
+                              ),
+                        _page == 4
+                            ? BigText(
+                                text: "Profile",
+                                color: redColor,
+                                size: 14.sp,
+                              )
+                            : SvgPicture.asset(
+                                "assets/profile.svg",
+                                // width: 30,
+                                // color: _page == 0 ? blueColor : progressBackgroundColor,
+                              )
                       ],
                     ),
                   ),

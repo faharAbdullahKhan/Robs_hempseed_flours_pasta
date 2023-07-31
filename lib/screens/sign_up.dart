@@ -131,7 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
                 textController: _firstNameTextController, hintText: "",),
             SizedBox(
               height: 20.h,
@@ -149,7 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _lastNameTextController,
               hintText: "",
               isObscure: false,
@@ -170,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _emailTextController,
               hintText: "",
               isObscure: false,
@@ -191,7 +191,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _mobileNumberTextController,
               hintText: "",
               textInputType: TextInputType.number,
@@ -213,7 +213,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _passwordTextController,
               hintText: "",
               isObscure: true,
@@ -234,7 +234,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(
               height: 6.h,
             ),
-            AppTextField(
+            AppTextField(enabled: true,
               textController: _confirmPasswordTextController,
               hintText: "",
               isObscure: true,
